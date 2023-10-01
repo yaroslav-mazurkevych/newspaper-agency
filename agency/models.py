@@ -20,7 +20,7 @@ class Newspaper(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField()
     published_date = models.DateField()
-    topic = models.ForeignKey(Topic, on_delete=models.SET_NULL)
+    topic = models.ForeignKey(Topic, on_delete=models.SET_NULL, null=True)
     publishers = models.ManyToManyField(Redactor, related_name="newspapers")
 
     def __str__(self):

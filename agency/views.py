@@ -37,6 +37,10 @@ class NewspaperCreateView(LoginRequiredMixin, generic.CreateView):
     success_url = reverse_lazy("agency:newspaper-list")
 
 
+class NewspaperDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Newspaper
+
+
 class NewspaperUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Newspaper
     fields = "__all__"
