@@ -15,7 +15,11 @@ from pathlib import Path
 from django.conf.urls.static import static
 
 import dj_database_url
+from dotenv import load_dotenv
 
+load_dotenv()
+
+print(os.environ["DATABASE_URL"])
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,7 +34,7 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "django-insecure-@yp+z&nnwg6wv4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["127.0.0.1"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition

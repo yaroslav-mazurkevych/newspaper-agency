@@ -1,10 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<ul class="nav flex-column" style="color: white">
+  {% if user.is_authenticated %}
+    <li class="nav-item" style="color: #fff">
+      User: <a style="color: #fff" href="{{ user.get_absolute_url }}">{{ user.get_username }}</a>
+    </li>
+    <li class="nav-item">
+      <a style="color: #fff" class="nav-link" href="{% url 'logout'%}?next={{request.path}}">Logout</a>
+    </li>
+  {% else %}
+    <li class="nav-item">
+      <a style="color: #fff" class="nav-link" href="{% url 'login'%}?next={{request.path}}">Login</a>
+    </li>
+  {% endif %}
+  <li class="nav-item">
+    <a style="color: #fff" class="nav-link" href="{% url 'agency:index' %}">Home</a>
+  </li>
+  <li class="nav-item">
+    <a style="color: #fff" class="nav-link" href="{% url 'agency:newspaper-list' %}">All titles</a>
+  </li>
+  <li class="nav-item">
+    <a style="color: #fff" class="nav-link" href="{% url 'agency:redactor-list' %}">All redactors</a>
+  </li>
+  <li class="nav-item">
+    <a style="color: #fff" class="nav-link" href="{% url 'agency:topic-list' %}">All topics</a>
+  </li>
+</ul>

@@ -1,0 +1,49 @@
+body {
+  background-color: #f2ead1;
+  font-family: 'Times New Roman', serif;
+  color: #1f1f1f;
+}
+
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.pagination{
+  background-color: #f2ead1;
+  padding: 20px;
+}
+
+
+h1 {
+  font-size: 36px;
+  color: #1f1f1f;
+}
+
+.nav-item {
+    font-size: 18px;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: grey;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  height: 100vh;
+}
+
+
+a {
+  color: #1f1f1f;
+  text-decoration: none;
+  transition: cursor 0.3s;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+main {
+  flex-grow: 1;
+}

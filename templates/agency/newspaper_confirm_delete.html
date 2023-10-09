@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Do really want to delete this newspaper?</h1>
+  <form action="" method="post">
+    {% csrf_token %}
+
+    <input type="submit" value="Yes" class="btn btn-secondary link-to-page">
+    <a href="{% url 'agency:newspaper-list' %}" class="btn btn-secondary link-to-page">No</a>
+  </form>
+{% endblock %}

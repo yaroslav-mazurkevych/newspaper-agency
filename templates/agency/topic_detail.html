@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    Username: {{ redactor.username }}
+       {% if user.is_superuser%}
+        <a style="float: right; margin-left: 1px" href="{% url 'agency:topic-delete' pk=topic.id %}"
+           class="btn btn-secondary link-to-page">
+          Delete
+        </a>
+
+        <a style="float: right" href="{% url 'agency:topic-update' pk=topic.id %}"
+           class="btn btn-secondary link-to-page">
+          Update
+        </a>
+        {% endif %}
+  </h1>
+
+  <p><strong>Name:</strong> {{ topic.name }}</p>
+
+
+  <div class="ml-3">
+    <h4>All titles of this topic:</h4>
+    <ul>
+        {% for name in topic.newspapers.all %}
+            <li>
+                <a href="{% url 'agency:newspaper-detail' pk=name.id %}">
+                    {{ name.title }}
+                </a>
+            </li>
+            {% empty %}
+                <p>For this topic do not exist any titles</p>
+        {% endfor %}
+    </ul>
+
+  </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{
+    "topics": [
+        {"name": "Technology"},
+        {"name": "Science"},
+        {"name": "Sports"},
+        {"name": "Politics"},
+        {"name": "Entertainment"},
+        {"name": "Health"},
+        {"name": "Business"},
+        {"name": "Travel"},
+        {"name": "Food"},
+        {"name": "Fashion"}
+    ]
+}

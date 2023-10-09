@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+        Username: {{ redactor.username }}
+  {% if user.is_superuser %}
+        <a style="float: right; margin-left: 1px" href="{% url 'agency:redactor-delete' pk=redactor.id %}"
+           class="btn btn-secondary link-to-page">
+          Delete
+        </a>
+
+        <a style="float: right" href="{% url 'agency:redactor-update' pk=redactor.id %}"
+           class="btn btn-secondary link-to-page">
+          Update
+        </a>
+  {% endif %}
+  </h1>
+
+  <p><strong>First name:</strong> {{ redactor.first_name }}</p>
+  <p><strong>Last name:</strong> {{ redactor.last_name }}</p>
+  <p><strong>Years of experience:</strong> {{ redactor.years_of_experience }}</p>
+
+  <div class="ml-3">
+    <h4>All titles which this author published:</h4>
+    <ul>
+        {% for newspaper in redactor.newspapers.all %}
+            <li>
+                <a href="{% url 'agency:newspaper-detail' pk=newspaper.id %}">
+                    {{ newspaper.title }}
+                </a>
+            </li>
+            {% empty %}
+                <p>This author did not publish any title</p>
+        {% endfor %}
+    </ul>
+
+  </div>
+{% endblock %}
