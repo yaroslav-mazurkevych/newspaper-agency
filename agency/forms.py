@@ -9,7 +9,6 @@ class RedactorCreationForm(UserCreationForm):
         model = Redactor
         fields = [
             "username",
-            "password",
             "first_name",
             "last_name",
             "years_of_experience"
