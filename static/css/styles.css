@@ -40,13 +40,6 @@ a {
   transition: cursor 0.3s;
 }
 
-a:hover {
-  cursor: pointer;
-}
-
-.nav-item:hover {
-  color: blue;
-}
 
 main {
   flex-grow: 1;
