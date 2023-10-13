@@ -42,6 +42,9 @@ a {
 
 a:hover {
   cursor: pointer;
+}
+
+.nav-item:hover {
   color: blue;
 }
 
