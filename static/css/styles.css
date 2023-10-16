@@ -40,6 +40,11 @@ a {
   transition: cursor 0.3s;
 }
 
+a:hover {
+  cursor: pointer;
+  background-color: #bfbfbf;
+}
+
 
 main {
   flex-grow: 1;
