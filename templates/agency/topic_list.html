@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if user.is_superuser %}
+  <h1>
+    Title list
+        <a href="{% url 'agency:topic-create' %}" class="btn btn-secondary link-to-page">
+          Create
+        </a>
+  {% endif %}
+  </h1>
+  {% if topic_list %}
+    <ul>
+      {% for topic in topic_list %}
+        <li>
+          <a href="{% url "agency:topic-detail" pk=topic.id %}">{{ topic.name }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no topics</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    {{ newspaper.title }}
+      {% if user.is_superuser or user in newspaper.publishers.all %}
+        <a style="float: right; margin-left: 1px" href="{% url 'agency:newspaper-delete' pk=newspaper.id %}"
+           class="btn btn-secondary link-to-page">
+          Delete
+        </a>
+
+        <a style="float: right" href="{% url 'agency:newspaper-update' pk=newspaper.id %}"
+           class="btn btn-secondary link-to-page">
+          Update
+        </a>
+  {% endif %}
+  </h1>
+  <ul>
+  By
+  {% for redactor in newspaper.publishers.all %}
+    <li style="font-style: italic; color: #777;">
+      {{ redactor.username }}: ({{ redactor.first_name }} {{ redactor.last_name }})
+    </li>
+  {% endfor %}
+</ul>
+<p style="font-style: italic; color: #777;">{{ newspaper.published_date }}</p>
+  <div>{{ newspaper.content }}</div>
+{% endblock %}

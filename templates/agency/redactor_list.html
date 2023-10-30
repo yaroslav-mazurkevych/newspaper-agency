@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <h1>
+    Author list
+        <a href="{% url 'agency:redactor-create' %}" class="btn btn-secondary link-to-page">
+          Create
+        </a>
+  </h1>
+  <form method="get" action="">
+    {{ search_form|crispy }}
+    <input type="submit" value="🔎">
+  </form>
+  {% if redactor_list %}
+    <ul>
+      {% for redactor in redactor_list %}
+        <li>
+          <a href="{% url "agency:redactor-info" pk=redactor.id %}">
+              {{ redactor.username }}
+          </a>
+
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no redactors</p>
+  {% endif %}
+{% endblock %}
