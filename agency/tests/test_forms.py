@@ -11,7 +11,6 @@ class FormTest(TestCase):
             "password2": "test_password",
             "first_name": "test_name",
             "last_name": "test_surname",
-            "workplace": None,
             "email": "test@test.com",
             "years_of_experience": 10
         }
